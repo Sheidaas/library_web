@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1by9u33@dm5_lf4*s_q-*!htz-mubn@rq(lntp9a#vyt+(vtte'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -134,4 +134,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [                # For static files not particular to any app.
     os.path.join(BASE_DIR, 'static/templates/'),
 ]
-
