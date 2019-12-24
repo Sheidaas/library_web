@@ -4,6 +4,8 @@ from .views.start_page import redirect_to_index
 import sys
 sys.path.append('..')
 from library import urls as library_urls
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
