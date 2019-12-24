@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'list_of_books/list_of_books.css' %}">
+
+    <title> Book list </title>
+</head>
+<body>
+
+<div class="container-fluid justify-content-center">
+    <div class="row">
+        <!-- Menu bar -->
+        <div class="col-12 col-lg-7 justify-content-center" id="logo">
+          <a href="{% url 'index' %}"> Library </a>
+        </div>
+        <!-- SearchForm -->
+        <div class=" col-12 col-lg-7 justify-content-center rounded" id="input-fields">
+          <div class="col-12" id="form_header"> Book Searcher </div>
+          <form method="post"> {% csrf_token %}
+              <div id="">
+                  <div class="input col-12">
+                      <div class="input-title"> Title </div>
+                      {{form.title}}
+                  </div>
+                  <div class="error col-12">
+                    {% if form.errors.title %}
+                      {{ form.errors.title }}
+                    {% endif %}
+                  </div>
+                  <div class="input col-12">
+                      <div class="input-title"> Authors </div>
+                      {{form.authors}}
+                  </div>
+                  <div class="error col-12">
+                    {% if form.errors.authors %}
+                      {{ form.errors.authors }}
+                    {% endif %}
+                  </div>
+                  <div class="input col-12">
+                      <div class="input-title"> Language </div>
+                      {{form.language}}
+                  </div>
+                  <div class="error col-12">
+                    {% if form.errors.language %}
+                      {{ form.errors.language }}
+                    {% endif %}
+                  </div>
+                  <div class="input col-12">
+                      <div class="input-title">Published after </div>
+                      {{form.published_from}}
+                  </div>
+                  <div class="error col-12">
+                    {% if form.errors.published_from %}
+                      {{ form.errors.published_from }}
+                    {% endif %}
+                  </div>
+                  <div class="input col-12">
+                      <div class="input-title"> Published before </div>
+                      {{form.published_to}}
+                  </div>
+                  <div class="error col-12">
+                    {% if form.errors.published_to %}
+                      {{ form.errors.published_to }}
+                    {% endif %}
+                  </div>
+              </div>
+              <div class="col-12" id="submit-input">
+                  <input type="submit" value="Search" class="btn btn-primary" id="submit">
+              </div>
+
+          </form>
+        </div>
+    </div>
+{% if books_list %}
+<div class="row justify-content-center">
+    <div id="result-header" class="col-12"> Results </div>
+    {% for book in books_list %}
+    <div class="card book-card col-12 col-lg-3 mr-2">
+        <div>
+            <img src="{{ book.url_to_cover }}" class="book-cover">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"> {{ book.title }}</h5>
+            <div class="card-text">
+                <div class="card-authors">
+                    Authors:
+                    {% for author in book.authors.all %}
+                    <div>
+                        {{ author.full_name }}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="card-published-date">
+                    Published: {{ book.published_date }}
+                </div>
+                <div class="card-languages">
+                    Language: {{ book.language }}
+                </div>
+                <div class="card-page-count">
+                    Page count: {{ book.page_count }}
+                </div>
+                <div class="card-isbn">
+                    ISBN_13: {{ book.isbn }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
