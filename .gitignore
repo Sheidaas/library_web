@@ -1,0 +1,6 @@
+venv
+*.pyc
+*.iml
+*.xml
+.DS_Store
+*.pyc
