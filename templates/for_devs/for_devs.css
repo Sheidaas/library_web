@@ -32,3 +32,6 @@ a{
   text-decoration: none !important;
   color: #EDF2F4;
 }
+#var-header{
+    margin-top: 30px;
+}

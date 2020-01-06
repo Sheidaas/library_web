@@ -26,7 +26,8 @@ def create_filter(get_data: dict):
         _filter['title'] = ''
 
     if get_data['authors'] != '.':
-        _filter['authors'] = get_data['authors'].split(',')
+        full_names_list = create_authors_full_names(get_data['authors'])
+        _filter['authors'] = full_names_list
     else:
         _filter['authors'] = ['']
 
@@ -49,3 +50,12 @@ def create_data(books):
     for book in books:
         data.append(book.to_dict())
     return data
+
+
+def create_authors_full_names(raw_authors_names):
+    full_names_list = []
+    authors_names = raw_authors_names.split('-')
+    for name in authors_names:
+        full_name = ' '.join(name.split('+'))
+        full_names_list.append(full_name)
+    return full_names_list

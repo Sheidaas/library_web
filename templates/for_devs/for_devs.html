@@ -22,10 +22,35 @@
         </div>
         <div class="row col-12 col-lg-7 justify-content-center" id="text">
           <div class="col-12">
-            http://127.0.0.1:8000/library/get_books/intitle:.+inauthor:.+inlanguage:.+published_date_from:.+published_date_to:.+
+            library/get_books/intitle:.,inauthor:.,inlanguage:.,published_date_from:.,published_date_to:.,
+          </div>
+          <div class="col-12" id="var-header"><h2>Variables</h2></div>
+          <div class="col-12">
+            <h3>intitle:</h3>
+            <p>if blank: intitle:.,</p>
+            <p>if with value: intitle:Hobbit+czyli+tam,</p>
           </div>
           <div class="col-12">
-            If blank, type just . tile intitle:.+
+            <h3>inauthor:</h3>
+            <p>if blank: inauthor:.,</p>
+             <p>if one author: inauthor:Tolkien,</p>
+              <p>if full name: inauthor:J.+R.+R.+Tolkien,</p>
+              <p>if two author with full name: inauthor:J.+R.+R.+Tolkien-J.+K.+Rowling,</p>
+          </div>
+          <div class="col-12">
+            <h3>inlanguage:</h3>
+              <p>if blank: inlanguage:.,
+              <p>if with value: inlanguage:en,
+          </div>
+          <div class="col-12">
+            <h3>published_date_from:</h3>
+              <p>if blank: published_date_from:.,</p>
+              <p>if with value: published_date_from:2000-01-20,</p>
+          </div>
+          <div class="col-12">
+            <h3>published_date_to:</h3>
+              <p>if blank: published_date_to:.,</p>
+              <p>if with value: published_date_to:2000-01-20,</p>
           </div>
         </div>
       </div>

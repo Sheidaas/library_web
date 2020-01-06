@@ -22,10 +22,34 @@
         </div>
         <div class="row col-12 col-lg-7 justify-content-center" id="text">
           <div class="col-12">
-            http://127.0.0.1:8000/library/get_books/intitle:.+inauthor:.+inlanguage:.+published_date_from:.+published_date_to:.+
+            library/get_books/intitle:.,inauthor:.,inlanguage:.,published_date_from:.,published_date_to:.,
           </div>
-          <div class="col-12">
-            If blank, type just . tile intitle:.+
+          <div class="col-12 col-lg-4">
+            intitle:
+              if blank: intitle:.,
+              if with value: intitle:Hobbit+czyli+tam,
+          </div>
+          <div class="col-12 col-lg-4">
+            inauthor:
+              if blank: inauthor:.,
+              if one author: inauthor:Tolkien,
+              if full name: inauthor:J.+R.+R.+Tolkien,
+              if two author with full name: inauthor:J.+R.+R.+Tolkien-J.+K.+Rowling,
+          </div>
+          <div class="col-12 col-lg-4">
+            inlanguage:
+              if blank: inlanguage:.,
+              if with value: inlanguage:en,
+          </div>
+          <div class="col-12 col-lg-4">
+            published_date_from:
+              if blank: published_date_from:.,
+              if with value: published_date_from:2000-01-20,
+          </div>
+          <div class="col-12 col-lg-4">
+            published_date_to:
+              if blank: published_date_to:.,
+              if with value: published_date_to:2000-01-20,
           </div>
         </div>
       </div>

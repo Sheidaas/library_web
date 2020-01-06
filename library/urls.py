@@ -13,7 +13,7 @@ urlpatterns = [
     path('list_of_books', render_list_of_books, name='render_list_of_books'),
     path('google_book_searcher', render_import_from_volume, name='render_import_from_value'),
     path('for_devs', render_for_devs, name='render_for_devs'),
-    path('get_books/intitle:<str:title>+inauthor:<str:authors>+'
-         + 'inlanguage:<str:language>+published_date_from:<str:date_from>+'
-         + 'published_date_to:<str:date_to>+', render_filter_books_data, name='render_filter_books_data')
+    path('get_books/intitle:<str:title>,inauthor:<str:authors>,'
+         + 'inlanguage:<str:language>,published_date_from:<str:date_from>,'
+         + 'published_date_to:<str:date_to>,', render_filter_books_data, name='render_filter_books_data')
 ]
